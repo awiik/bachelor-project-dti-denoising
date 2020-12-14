@@ -4,10 +4,6 @@ from math import floor
 from generate_training_data_6num import get_rotated_spd_matrix, add_noise_to_spd, add_noise_to_spd_unbiased
 
 
-"""
-See generate_trainig_data.py for notes
-"""
-
 def main():
     #N = 1200 # Number of training images
     #M = 200 # Number of testing images

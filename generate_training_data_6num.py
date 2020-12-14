@@ -2,9 +2,6 @@ import numpy as np
 from random import randint, uniform
 from math import floor
 
-"""
-See generate_trainig_data.py for notes
-"""
 
 def main():
     #N = 1200 # Number of training images
