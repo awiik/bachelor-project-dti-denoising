@@ -66,6 +66,7 @@ def ssim_test(y_true, y_pred):
     return res/6
 
 def visualize(evals,evecs,viz_scale=0.5, fname='tensor_ellipsoids.png', size=(1000,1000)):
+    print('visualizing and saving to',fname)
     # Do vizualisation
     interactive = True
 
@@ -73,8 +74,8 @@ def visualize(evals,evecs,viz_scale=0.5, fname='tensor_ellipsoids.png', size=(10
 
     from dipy.data import get_sphere
     #sphere = get_sphere('symmetric362')
-    #sphere = get_sphere('repulsion724')
-    sphere = get_sphere('symmetric642')
+    sphere = get_sphere('repulsion724')
+    #sphere = get_sphere('symmetric642')
 
     # Calculate the colors. See dipy documentation.
     from dipy.reconst.dti import fractional_anisotropy, color_fa
@@ -95,6 +96,7 @@ def visualize(evals,evecs,viz_scale=0.5, fname='tensor_ellipsoids.png', size=(10
     ren.add(actor.tensor_slicer(evals, evecs, sphere=sphere, scalar_colors=cfa, scale=viz_scale, norm=False))
 
     if interactive:
+        print('Close the visualization window to continue...')
         window.show(ren)
 
-    window.record(ren, n_frames=1, out_path=fname, size=(1000, 1000))
+    window.snapshot(ren, fname=fname, size=size)
